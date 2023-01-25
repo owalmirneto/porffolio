@@ -4,8 +4,24 @@ import Link from 'next/link';
 
 import { useState, useEffect } from 'react';
 
+type Contact = {
+  code: string;
+  name: string;
+  icon: string;
+  link: string;
+}
+
+type About = {
+  title: string;
+  location: string;
+  country: string;
+  email: string;
+  items: [];
+  contacts: Contact[];
+}
+
 export default function PageAbout() {
-  const [about, setAbout] = useState(null);
+  const [about, setAbout] = useState<any>(null);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -18,7 +34,6 @@ export default function PageAbout() {
   }, [])
 
   if (isLoading) return <p>Loading...</p>
-  // if (!about) return <p>About not found</p>
 
   return (
     <div id="about">
@@ -38,7 +53,7 @@ function mountItems(item: any) {
   return <p key={item}>{item}</p>
 }
 
-function mountLocation(about: any) {
+function mountLocation(about: About) {
   return (
     <div>
       {about?.location} · {about?.country} ·
@@ -47,7 +62,7 @@ function mountLocation(about: any) {
   )
 }
 
-function mountLinks(contact: any) {
+function mountLinks(contact: Contact) {
   return (
     <div key={contact.code}>
       <Link href={contact.link} title={contact.name}>{contact.icon}</Link>
