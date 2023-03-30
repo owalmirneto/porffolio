@@ -1,71 +1,45 @@
-'use client';
+import Link from "next/link"
 
-import Link from 'next/link';
+import { about } from "../data/about";
 
-import { useState, useEffect } from 'react';
+// import { Client } from "@notionhq/client";
 
-type Contact = {
-  code: string;
-  name: string;
-  icon: string;
-  link: string;
-}
+// const notion = new Client({
+//   auth: "secret_MW16ns70TgqXmqqk4eNqkroNi59dkWpPnrKyX3f7bJf",
+// })
 
-type About = {
-  title: string;
-  location: string;
-  country: string;
-  email: string;
-  items: [];
-  contacts: Contact[];
-}
+// const getDatabase = (async () => {
+//   return await notion.databases.query({
+//     database_id: "24ea7d4ee5fb4ab281470128eb47ea26"
+//   })
+// })
 
-export default function PageAbout() {
-  const [about, setAbout] = useState<any>(null);
-  const [isLoading, setLoading] = useState(false);
+// const pages = (await getDatabase()).results
 
-  useEffect(() => {
-    setLoading(true);
+// console.log(pages[0].properties.Page.title[0].text.content);
 
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/about.json`)
-      .then((res) => res.json())
-      .then((about) => setAbout(about))
-      .then(() => setLoading(false));
-  }, [])
-
-  if (isLoading) return <p>Loading...</p>
-
+export default async function PageAbout() {
   return (
     <div id="about">
-      <h1>{about?.title}</h1>
-      <p>{about?.email}</p>
+      <h1>{about.title}</h1>
+      <p>{about.email}</p>
 
-      {about?.items?.map(mountItems)}
+      <div>{about?.bio?.map(mountBio)}</div>
 
-      {mountLocation(about)}
-
-      {about?.contacts?.map(mountLinks)}
+      <div>{mountLocation(about)}</div>
     </div>
   );
 };
 
-function mountItems(item: any) {
-  return <p key={item}>{item}</p>
+function mountBio(item: any, key: number) {
+  return <p key={key}>{item}</p>
 }
 
-function mountLocation(about: About) {
+function mountLocation(about: any) {
   return (
     <div>
       {about?.location} · {about?.country} ·
       <Link href={`mailto:${about?.email}`}>{about?.email}</Link>
-    </div>
-  )
-}
-
-function mountLinks(contact: Contact) {
-  return (
-    <div key={contact.code}>
-      <Link href={contact.link} title={contact.name}>{contact.icon}</Link>
     </div>
   )
 }

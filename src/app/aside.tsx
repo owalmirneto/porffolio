@@ -16,6 +16,9 @@ export default function Aside() {
         <li>
           <Link href="/skills">Skills</Link>
         </li>
+        <li>
+          <Link href="/contact">Contact</Link>
+        </li>
       </ul>
     </aside>
   )
