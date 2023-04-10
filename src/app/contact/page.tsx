@@ -1,18 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 
-import { contacts } from "../../data/contacts"
-import { jobs } from "../../data/jobs"
-
-
+import { contacts } from "@/data/contacts"
 
 export default function Contact() {
-
-  // moment.locale("pt-BR")
   return (
     <section id="contact">
       <h1>Contact</h1>
-      <div>{jobs[0].hireDate}</div>
 
       <div>
         <Image
@@ -27,15 +21,15 @@ export default function Contact() {
 
       <div>{renderContacts()}</div>
     </section>
-  );
+  )
 }
 
 const renderContacts = () => {
-  return contacts.map(({ Comp, link, alt }) => {
+  return contacts.map(({ IconComponent, link, alt }) => {
     return (
       <Link key={link} href={link} aria-label={alt}>
-        <Comp />
+        <IconComponent />
       </Link>
-    );
+    )
   })
 }

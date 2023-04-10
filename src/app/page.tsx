@@ -1,22 +1,6 @@
 import Link from "next/link"
 
-import { about } from "../data/about";
-
-// import { Client } from "@notionhq/client";
-
-// const notion = new Client({
-//   auth: "secret_MW16ns70TgqXmqqk4eNqkroNi59dkWpPnrKyX3f7bJf",
-// })
-
-// const getDatabase = (async () => {
-//   return await notion.databases.query({
-//     database_id: "24ea7d4ee5fb4ab281470128eb47ea26"
-//   })
-// })
-
-// const pages = (await getDatabase()).results
-
-// console.log(pages[0].properties.Page.title[0].text.content);
+import { about } from "@/data/about"
 
 export default async function PageAbout() {
   return (
@@ -28,13 +12,14 @@ export default async function PageAbout() {
 
       <div>{mountLocation(about)}</div>
     </div>
-  );
-};
+  )
+}
 
-function mountBio(item: any, key: number) {
+function mountBio(item: string, key: number) {
   return <p key={key}>{item}</p>
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mountLocation(about: any) {
   return (
     <div>

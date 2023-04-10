@@ -1,7 +1,7 @@
-import './globals.css';
+import "./globals.css"
 
-import Aside from "./aside";
-import Footer from "./footer";
+import Aside from "./aside"
+import Footer from "./footer"
 
 export default function RootLayout({
   children,

@@ -3,51 +3,51 @@ import {
   FaLinkedin,
   FaTwitterSquare,
   FaInstagram
-} from "react-icons/fa";
-import { BsTelegram } from "react-icons/bs";
-import { SiGmail, SiGithub, SiGitlab } from "react-icons/si";
+} from "react-icons/fa"
+import { BsTelegram } from "react-icons/bs"
+import { SiGmail, SiGithub, SiGitlab } from "react-icons/si"
 
 const contacts = [
   {
-    Comp: FaLinkedin,
+    IconComponent: FaLinkedin,
     alt: "LinkedIn icon",
     link: "https://linkedin.com/in/owalmirneto",
   },
   {
-    Comp: SiGmail,
+    IconComponent: SiGmail,
     alt: "Email icon",
     link: "mailto:owalmirneto@gmail.com",
   },
   {
-    Comp: SiGithub,
+    IconComponent: SiGithub,
     alt: "Github icon",
     link: "https://github.com/owalmirneto",
   },
   {
-    Comp: SiGitlab,
+    IconComponent: SiGitlab,
     alt: "Gitlab icon",
     link: "https://gitlab.com/owalmirneto",
   },
   {
-    Comp: BsTelegram,
+    IconComponent: BsTelegram,
     alt: "Telegram icon",
     link: "https://t.me/owalmirneto",
   },
   {
-    Comp: FaTwitch,
+    IconComponent: FaTwitch,
     alt: "Twitch icon",
     link: "https://twitch.tv/owalmirneto",
   },
   {
-    Comp: FaInstagram,
+    IconComponent: FaInstagram,
     alt: "Instagram icon",
     link: "https://instagram.com/owalmirneto",
   },
   {
-    Comp: FaTwitterSquare,
+    IconComponent: FaTwitterSquare,
     alt: "Twitter icon",
     link: "https://twitter.com/owalmirneto",
   },
-];
+]
 
-export { contacts };
+export { contacts }

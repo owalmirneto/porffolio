@@ -8,6 +8,6 @@ const about = {
     "I liked it a lot because Ruby on Rails is simpler than PHP for some things, that is my first impression of Ruby on Rails.",
     "Now I have experience as TechLead and Fullstack Software Developer. Working with Software as a Service (SaaS) using the web as a platform. Also into Mobile Apps Development, Cloud Computing, Open Source and New Technologies."
   ]
-};
+}
 
 export { about }
