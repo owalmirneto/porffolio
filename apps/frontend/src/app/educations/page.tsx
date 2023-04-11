@@ -27,6 +27,7 @@ export default function Educations() {
     <section id="education">
       <h2>Education</h2>
 
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       { data.courses.map((course: any) => (
         <div key={course.id}>
           <div>
