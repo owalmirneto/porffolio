@@ -272,7 +272,6 @@ DEPENDENCIES
   rubocop-rails (~> 2.11, >= 2.11.3)
   rubocop-rspec (~> 2.4)
   shoulda-matchers (~> 5.0)
-  tzinfo-data
 
 RUBY VERSION
    ruby 3.2.2p53

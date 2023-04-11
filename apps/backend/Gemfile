@@ -13,15 +13,8 @@ gem "rails-i18n", "~> 7.0"
 gem "pg", "~> 1.2", ">= 1.2.3"
 # https://github.com/puma/puma#rails
 gem "puma", "~> 5.4"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
 
 group :development, :test do
   # https://github.com/bkeepers/dotenv#rails
