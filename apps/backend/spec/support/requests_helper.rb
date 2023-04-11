@@ -5,6 +5,10 @@ module RequestsHelper
     SecureRandom.uuid
   end
 
+  def json_body_data
+    json_body[:data] if json_body.present?
+  end
+
   def json_body
     return if response.body.blank?
 

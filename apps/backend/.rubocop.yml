@@ -7,8 +7,8 @@ require:
 # GraphQL/ArgumentDescription:
 #   Enabled: false
 
-# GraphQL/FieldDescription:
-#   Enabled: false
+GraphQL/FieldDescription:
+  Enabled: false
 
 GraphQL/ObjectDescription:
   Enabled: false

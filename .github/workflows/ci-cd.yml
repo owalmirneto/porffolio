@@ -1,0 +1,97 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+env:
+  RAILS_ENV: test
+  DATABASE_URL: postgres://postgres:@localhost:5432/walmir_dev_test
+
+jobs:
+  integration:
+    name: Continuous Integration
+    runs-on: ubuntu-22.04
+
+    services:
+      db:
+        image: postgres:15.1-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - name: Verify ruby version
+        working-directory: ./apps/backend
+        run: ruby --version
+
+      - name: Install rubocop-graphql
+        run: gem install rubocop-graphql
+
+      - name: Rubocop with ReviewDog
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          workdir: ./apps/backend
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+
+      - name: Install dependencies
+        working-directory: ./apps/frontend
+        run: pnpm install
+
+      - name: Frontend Lint
+        working-directory: ./apps/frontend
+        run: pnpm lint
+
+      - name: Copy .env
+        run: cp ./apps/backend/.env.example ./apps/backend/.env
+
+      - name: Install bundler
+        working-directory: ./apps/backend
+        run: gem install bundler && bundler install
+
+      - name: Prepare database
+        working-directory: ./apps/backend
+        run: bin/rails db:setup db:test:prepare db:schema:load db:migrate --trace RAILS_ENV=test;
+
+      - name: Run RSpec
+        working-directory: ./apps/backend
+        run: bin/rspec
+
+  deployment:
+    name: Continuous Deployment
+    runs-on: ubuntu-22.04
+    needs: integration
+
+    steps:
+      - name: Uia!
+        run: echo "Uia Mermo!"
