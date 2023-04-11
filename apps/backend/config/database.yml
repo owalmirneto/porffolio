@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: <%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD', 'postgres') %>
+  pool: <%= ENV.fetch('POSTGRES_POOL', 5) %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch('POSTGRES_PREFIX_NAME', 'walmir_dev') %>_development
+
+test:
+  <<: *default
+  database: walmir_dev_test
