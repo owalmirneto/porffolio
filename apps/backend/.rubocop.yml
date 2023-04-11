@@ -63,3 +63,5 @@ AllCops:
     - config/environments/**/*
     - vendor/**/*
     - tmp/**/*
+    - app/controllers/graphql_controller.rb
+    - app/graphql/walmir_dev_schema.rb
