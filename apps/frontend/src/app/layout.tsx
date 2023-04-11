@@ -1,7 +1,12 @@
+"use client"
+
 import "./globals.css"
 
 import Aside from "./aside"
 import Footer from "./footer"
+
+import { ApolloProvider } from "@apollo/client"
+import { client } from "@/services/apollo"
 
 export default function RootLayout({
   children,
@@ -18,7 +23,11 @@ export default function RootLayout({
       <body>
         <Aside />
 
-        <main>{children}</main>
+        <main>
+          <ApolloProvider client={client}>
+            {children}
+          </ApolloProvider>
+        </main>
 
         <Footer />
       </body>
