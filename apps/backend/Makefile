@@ -1,8 +1,13 @@
+setup:
+	test -f .env || cp .env.example .env;
+	docker-compose up -d && bin/setup;
+	make dbreseed dbprepare;
+
 up:
 	docker-compose up -d;
 
 start:
-	bin/dev;
+	bin/rails s;
 
 dbprepare:
 	bin/rails db:drop db:create db:migrate RAILS_ENV=test;
