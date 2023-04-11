@@ -5,8 +5,8 @@ FactoryBot.define do
     school
     title { Faker::Educator.course_name }
     subtitle { Faker::Educator.subject }
-    start_date { Faker::Date.between(from: 2.months.ago, to: Date.today) }
-    finish_date { Faker::Date.between(from: Date.today, to: 2.months.from_now) }
+    start_date { Faker::Date.between(from: 2.months.ago, to: Date.current) }
+    finish_date { Faker::Date.between(from: Date.current, to: 2.months.from_now) }
 
     trait :blank do
       school { nil }
