@@ -1,0 +1,48 @@
+name: Sync infrastructure
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: ./.github/workflows/continuous-integration.yml
+
+  terraform:
+    name: Sync infrastructure with Terraform
+    runs-on: ubuntu-22.04
+    needs: [ci]
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      TF_VAR_ssh_public_key_content: ${{ secrets.SSH_PUBLIC_KEY_CONTENT }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Terraform init
+        working-directory: ./terraform
+        run: terraform init -backend-config="conn_str=${{ secrets.TERRAFORM_PG_CONNECTION }}" -input=false
+
+      - name: Terraform validation
+        working-directory: ./terraform
+        run: terraform validate
+
+      - name: Terraform plan
+        working-directory: ./terraform
+        run: terraform plan -input=false
+
+      - name: Terraform apply
+        working-directory: ./terraform
+        run: terraform apply -auto-approve -input=false
+
+  ansible:
+    name: Install dependecies with Ansible
+    runs-on: ubuntu-22.04
+    needs: [terraform]
+
+    steps:
+      - name: Uia!
+        run: echo "Soon I'll implement this"
