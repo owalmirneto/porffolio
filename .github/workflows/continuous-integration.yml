@@ -1,0 +1,20 @@
+name: Continuous integration
+
+on:
+  workflow_call:
+
+  pull_request:
+    branches: [main]
+
+env:
+  RAILS_ENV: test
+
+jobs:
+  rubocop:
+    uses: ./.github/workflows/reusable-rubocop.yml
+
+  nextjs-lint:
+    uses: ./.github/workflows/reusable-nextjs-lint.yml
+
+  rspec:
+    uses: ./.github/workflows/reusable-rspec.yml

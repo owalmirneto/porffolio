@@ -1,0 +1,11 @@
+[rancher]
+${rancher_public_ip}
+
+[k3s]
+%{ for public_ip in k3s_public_ips ~}
+${public_ip}
+%{ endfor ~}
+
+[all]
+[all:vars]
+ansible_user=ubuntu

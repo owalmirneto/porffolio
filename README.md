@@ -11,5 +11,5 @@ Furthermore, I intend to automate the deployment of all applications using [Terr
  * [Backend](./apps/backend)
  * [Frontend](./apps/frontend)
  * Mobile (Soon)
- * Terraform (Soon)
+ * [Terraform](./apps/terraform)
  * Ansible (Soon)

@@ -1,20 +1,16 @@
-name: CI/CD
+name: RSpec
 
 on:
-  push:
-    branches: [main]
-
-  pull_request:
-    branches: [main]
-
-env:
-  RAILS_ENV: test
-  DATABASE_URL: postgres://postgres:@localhost:5432/walmir_dev_test
+  workflow_call:
 
 jobs:
-  integration:
-    name: Continuous Integration
+  rspec:
+    name: RSpec
     runs-on: ubuntu-22.04
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:@localhost:5432/walmir_dev_test
 
     services:
       db:
@@ -44,34 +40,6 @@ jobs:
         working-directory: ./apps/backend
         run: ruby --version
 
-      - name: Install rubocop-graphql
-        run: gem install rubocop-graphql
-
-      - name: Rubocop with ReviewDog
-        uses: reviewdog/action-rubocop@v2
-        with:
-          rubocop_version: gemfile
-          workdir: ./apps/backend
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-install
-        with:
-          version: 8
-
-      - name: Install dependencies
-        working-directory: ./apps/frontend
-        run: pnpm install
-
-      - name: Frontend Lint
-        working-directory: ./apps/frontend
-        run: pnpm lint
-
       - name: Copy .env
         run: cp ./apps/backend/.env.example ./apps/backend/.env
 
@@ -86,12 +54,3 @@ jobs:
       - name: Run RSpec
         working-directory: ./apps/backend
         run: bin/rspec
-
-  deployment:
-    name: Continuous Deployment
-    runs-on: ubuntu-22.04
-    needs: integration
-
-    steps:
-      - name: Uia!
-        run: echo "Uia Mermo!"
