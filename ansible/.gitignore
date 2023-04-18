@@ -1,1 +1,4 @@
 hosts.ini
+
+ssh/*
+!ssh/.keep

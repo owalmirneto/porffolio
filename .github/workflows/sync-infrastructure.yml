@@ -38,11 +38,12 @@ jobs:
         working-directory: ./terraform
         run: terraform apply -auto-approve -input=false
 
-  ansible:
-    name: Install dependecies with Ansible
-    runs-on: ubuntu-22.04
-    needs: [terraform]
+      - name: Create ssh private key
+        working-directory: ./ansible
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY_CONTENT }}" > ssh/private-key.pem
+          chmod 0600 ssh/private-key.pem
 
-    steps:
-      - name: Uia!
-        run: echo "Soon I'll implement this"
+      - name: Install dependecies with Ansible
+        working-directory: ./ansible
+        run: ansible-playbook --private-key=ssh/private-key.pem main.yaml
