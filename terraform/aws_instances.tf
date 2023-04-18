@@ -1,6 +1,6 @@
 resource "aws_instance" "rancher_server" {
-  ami                    = "ami-007855ac798b5175e"
-  instance_type          = "t2.micro"
+  ami                    = local.aws_instance_ami
+  instance_type          = local.aws_instance_type
   key_name               = aws_key_pair.site_ssh_key.key_name
   vpc_security_group_ids = [aws_security_group.site_security_group.id]
 
@@ -12,8 +12,8 @@ resource "aws_instance" "rancher_server" {
 
 resource "aws_instance" "k3s" {
   count                  = 3
-  ami                    = "ami-007855ac798b5175e"
-  instance_type          = "t2.micro"
+  ami                    = local.aws_instance_ami
+  instance_type          = local.aws_instance_type
   key_name               = aws_key_pair.site_ssh_key.key_name
   vpc_security_group_ids = [aws_security_group.site_security_group.id]
 

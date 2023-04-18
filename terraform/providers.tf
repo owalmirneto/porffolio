@@ -10,6 +10,6 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
-  profile = "site-walmir-dev"
+  region  = local.aws_region
+  profile = local.aws_profile
 }
