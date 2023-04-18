@@ -2,7 +2,8 @@ name: Sync infrastructure
 
 on:
   push:
-    branches: [main]
+    tags:
+       - "*"
 
 jobs:
   ci:
