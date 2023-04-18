@@ -10,7 +10,7 @@ resource "aws_instance" "rancher_server" {
   }
 }
 
-resource "aws_instance" "k3s" {
+resource "aws_instance" "k3s_server" {
   count                  = 3
   ami                    = local.aws_instance_ami
   instance_type          = local.aws_instance_type
