@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_many :schools, dependent: :restrict_with_exception
   has_many :courses, through: :schools
+  has_many :pages, dependent: :restrict_with_exception
 
   encrypts :email, deterministic: true, downcase: true
 
