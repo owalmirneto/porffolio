@@ -1,4 +1,8 @@
 ActiveRecord::Base.transaction do
+  walmir = User.create!(
+    name: "Walmir Neto",
+    email: "owalmirneto@gmail.com"
+  )
   leiaut = School.create!(
     name: "ECPIE · Leiaut",
     website: "https://leiaut.com.br"
