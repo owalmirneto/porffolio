@@ -1,5 +1,7 @@
+import PageTitle from "@/components/commons/PageTitle"
+
 export default function Experiences() {
   return (
-    <h1>Experiences</h1>
+    <PageTitle title="Experiences" />
   )
 }

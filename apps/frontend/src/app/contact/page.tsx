@@ -3,10 +3,12 @@ import Image from "next/image"
 
 import { contacts } from "@/data/contacts"
 
+import PageTitle from "@/components/commons/PageTitle"
+
 export default function Contact() {
   return (
     <section id="contact">
-      <h1>Contact</h1>
+      <PageTitle title="Contact" />
 
       <div>
         <Image

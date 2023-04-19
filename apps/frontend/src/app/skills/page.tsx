@@ -1,5 +1,7 @@
+import PageTitle from "@/components/commons/PageTitle"
+
 export default function Skills() {
   return (
-    <h1>Skills</h1>
+    <PageTitle title="Skills" />
   )
 }
