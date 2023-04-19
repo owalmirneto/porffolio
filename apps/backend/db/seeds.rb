@@ -3,7 +3,8 @@ ActiveRecord::Base.transaction do
     name: "Walmir Neto",
     email: "owalmirneto@gmail.com"
   )
-  leiaut = School.create!(
+
+  leiaut = walmir.schools.create!(
     name: "ECPIE · Leiaut",
     website: "https://leiaut.com.br"
   )
@@ -15,7 +16,7 @@ ActiveRecord::Base.transaction do
     ordination: 1
   )
 
-  ep = School.create!(
+  ep = walmir.schools.create!(
     name: "English Path",
     website: "https://englishpath.com/destination/ep-london"
   )
@@ -27,7 +28,7 @@ ActiveRecord::Base.transaction do
     ordination: 2
   )
 
-  ncg = School.create!(
+  ncg = walmir.schools.create!(
     name: "New College Group",
     website: "https://newcollegegroup.com/locations/liverpool"
   )
@@ -39,7 +40,7 @@ ActiveRecord::Base.transaction do
     ordination: 3
   )
 
-  especializa = School.create!(
+  especializa = walmir.schools.create!(
     name: "Especializa treinamentos",
     website: "https://especializa.com.br"
   )
