@@ -1,0 +1,25 @@
+stages:
+  - build
+
+build_backend:
+  stage: build
+  image: docker:stable
+  only:
+    - tags
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay
+  script:
+    - cd apps/backend
+
+    - IMAGE_TAG_NAME="$CI_REGISTRY_IMAGE/backend"
+    - LATEST_IMAGE_TAG="$IMAGE_TAG_NAME:latest"
+    - CURRENT_IMAGE_TAG="$IMAGE_TAG_NAME:$(echo $CI_COMMIT_SHA | cut -c -8)"
+
+    - docker pull $LATEST_IMAGE_TAG || true
+    - docker build --cache-from $LATEST_IMAGE_TAG -t $CURRENT_IMAGE_TAG -t $LATEST_IMAGE_TAG .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+    - docker push $CURRENT_IMAGE_TAG
+    - docker push $LATEST_IMAGE_TAG

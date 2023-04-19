@@ -1,5 +1,7 @@
 "use client"
 
+import PageTitle from "@/components/commons/PageTitle"
+
 import { gql, useQuery } from "@apollo/client"
 
 const courseQuery = gql`
@@ -25,7 +27,7 @@ export default function Educations() {
 
   return (
     <section id="education">
-      <h2>Education</h2>
+      <PageTitle title="Education" />
 
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       { data.courses.map((course: any) => (
