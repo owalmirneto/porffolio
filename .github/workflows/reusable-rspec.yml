@@ -11,6 +11,7 @@ jobs:
     env:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres:@localhost:5432/walmir_dev_test
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
 
     services:
       db:
