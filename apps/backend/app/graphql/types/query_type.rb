@@ -7,5 +7,6 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     field :courses, resolver: Resolvers::Courses::ListResolver
+    field :page_by_email, resolver: Resolvers::Pages::FindByUserEmailResolver
   end
 end

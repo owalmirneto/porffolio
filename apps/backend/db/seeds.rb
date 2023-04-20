@@ -55,9 +55,15 @@ ActiveRecord::Base.transaction do
   walmir.pages.create!(
     title: "Hello, I'm Walmir!",
     description: [
-      "I started my career in 2007 and I started studying using PHP and then I was able to obtain my first Internship in 2009. I kept studying and I switched between some internships from 2009 to 2011, then in 2012 I ran into Ruby on Rails.",
-      "I liked it a lot because Ruby on Rails is simpler than PHP for some things, that is my first impression of Ruby on Rails.",
-      "Now I have experience as TechLead and Fullstack Software Developer. Working with Software as a Service (SaaS) using the web as a platform. Also into Mobile Apps Development, Cloud Computing, Open Source and New Technologies."
+      "I'm a Fullstack Software Developer and I started my career in 2007 studying using PHP and then I was able to obtain my first Internship in 2009.",
+
+      "I kept studying and worked with PHP until 2012 when I ran into Ruby on Rails. I liked it a lot because Ruby on Rails is simpler than PHP for some things, that is my first impression of Ruby on Rails.",
+
+      "I kept studying Ruby on Rails until I got some jobs with RoR and PHP. In 2016 I started to work for an app called 'ComunikApp' that would help with communication between the parents and school where I was responsible for the development of the platform, WebApp, and API that was consumed by Android APP, IOS APP, and WebApp.",
+
+      "Now I have experience as TechLead and Fullstack Software Developer. At the middle of 2022 was when I started to work for my current job in ilove.me as a Fullstack Software Developer.",
+
+      "So, this is a place for you to know about my career and below you can see my professional contacts and social networks."
     ],
     location: "Recife - PE",
     country: "Brazil",
