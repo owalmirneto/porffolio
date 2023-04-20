@@ -20,17 +20,17 @@ export default function RootLayout({
         <title>@owalmirneto</title>
       </head>
 
-      <body className="h-screen text-zinc-200 px-52 pt-20">
-        <section className="h-3/4 flex flex-col">
+      <body>
+        <section className="container">
           <TitleBar />
 
-          <div className="flex flex-1">
-            <main className="bg-zinc-500 flex-1 p-6">
-              <ApolloProvider client={client}>{children}</ApolloProvider>
-            </main>
-
+          <main className="grid grid-flow-row grid-cols-8">
             <Aside />
-          </div>
+
+            <div className="bg-zinc-500 p-6 sm:col-span-8 lg:col-span-6">
+              <ApolloProvider client={client}>{children}</ApolloProvider>
+            </div>
+          </main>
 
           <Footer />
         </section>
