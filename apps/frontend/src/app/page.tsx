@@ -1,32 +1,46 @@
-import Link from "next/link"
+"use client"
 
-import { about } from "@/data/about"
 import PageTitle from "@/components/commons/PageTitle"
+import Loading from "@/components/commons/Loading"
 
-function mountBio(item: string, key: number) {
-  return <p key={key}>{item}</p>
-}
+import Contacts from "@/app/Contacts"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mountLocation(about: any) {
+import { gql, useQuery } from "@apollo/client"
+
+const pageByEmailQuery = gql`
+  {
+    pageByEmail(userEmail: "owalmirneto@gmail.com") {
+      title
+      description
+      location
+      country
+      email
+    }
+  }
+`
+
+export default function ContactPage() {
+  const { loading, data } = useQuery(pageByEmailQuery)
+
+  if (loading) return <Loading />
+
+  const { title, description, location, country, email } = data.pageByEmail
+
   return (
-    <div>
-      {about?.location} · {about?.country}{" · "}
-      <Link className="text-zinc-950 font-semibold" href={`mailto:${about?.email}`}>{about?.email}</Link>
-    </div>
-  )
-}
+    <section id="contact" className="flex flex-col">
+      <PageTitle title={title} />
 
-export default async function PageAbout() {
-  return (
-    <div id="about">
-      <PageTitle title={about.title} />
-
-      <div className="text-xl space-y-4">
-        {about?.bio?.map(mountBio)}
+      <div className="space-y-3 text-lg">
+        {description.map((item: string, key: number) => <p key={key}>{item}</p>)}
       </div>
 
-      <div className="text-end mt-3">{mountLocation(about)}</div>
-    </div>
+      <div className="mb-10 text-end">
+        <p>{location} • {country}</p>
+
+        <a href={`mailto:${email}`} className="text-zinc-950 font-semibold">{email}</a>
+      </div>
+
+      <Contacts />
+    </section>
   )
 }
