@@ -7,7 +7,7 @@ describe User do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:email) }
 
-    context 'when email exists' do
+    context "when email exists" do
       before do
         create(:user, email:)
         user.valid?

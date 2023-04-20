@@ -2,7 +2,7 @@
 
 describe "Find page by user email" do
   before do
-    create(:page, user: user) if user.present?
+    create(:page, user:) if user.present?
 
     post(graphql_path, params: { query: })
   end
