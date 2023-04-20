@@ -1,5 +1,10 @@
 ActiveRecord::Base.transaction do
-  leiaut = School.create!(
+  walmir = User.create!(
+    name: "Walmir Neto",
+    email: "owalmirneto@gmail.com"
+  )
+
+  leiaut = walmir.schools.create!(
     name: "ECPIE · Leiaut",
     website: "https://leiaut.com.br"
   )
@@ -11,7 +16,7 @@ ActiveRecord::Base.transaction do
     ordination: 1
   )
 
-  ep = School.create!(
+  ep = walmir.schools.create!(
     name: "English Path",
     website: "https://englishpath.com/destination/ep-london"
   )
@@ -23,7 +28,7 @@ ActiveRecord::Base.transaction do
     ordination: 2
   )
 
-  ncg = School.create!(
+  ncg = walmir.schools.create!(
     name: "New College Group",
     website: "https://newcollegegroup.com/locations/liverpool"
   )
@@ -35,7 +40,7 @@ ActiveRecord::Base.transaction do
     ordination: 3
   )
 
-  especializa = School.create!(
+  especializa = walmir.schools.create!(
     name: "Especializa treinamentos",
     website: "https://especializa.com.br"
   )
@@ -45,5 +50,23 @@ ActiveRecord::Base.transaction do
     start_date: "2010-06-01",
     finish_date: "2010-09-01",
     ordination: 4
+  )
+
+  walmir.pages.create!(
+    title: "Hello, I'm Walmir!",
+    description: [
+      "I'm a Fullstack Software Developer and I started my career in 2007 studying using PHP and then I was able to obtain my first Internship in 2009.",
+
+      "I kept studying and worked with PHP until 2012 when I ran into Ruby on Rails. I liked it a lot because Ruby on Rails is simpler than PHP for some things, that is my first impression of Ruby on Rails.",
+
+      "I kept studying Ruby on Rails until I got some jobs with RoR and PHP. In 2016 I started to work for an app called 'ComunikApp' that would help with communication between the parents and school where I was responsible for the development of the platform, WebApp, and API that was consumed by Android APP, IOS APP, and WebApp.",
+
+      "Now I have experience as TechLead and Fullstack Software Developer. At the middle of 2022 was when I started to work for my current job in ilove.me as a Fullstack Software Developer.",
+
+      "So, this is a place for you to know about my career and below you can see my professional contacts and social networks."
+    ],
+    location: "Recife - PE",
+    country: "Brazil",
+    email: "hello@walmir.dev"
   )
 end

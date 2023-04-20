@@ -4,4 +4,12 @@
 
 body {
   background: url("/images/background.jpeg") no-repeat center fixed;
+
+  @apply text-zinc-50;
+
+  @apply p-5 sm:p-10 md:p-16 lg:p-28 xl:p-44 2xl:p-80;
+}
+
+body > section {
+  @apply mx-auto;
 }

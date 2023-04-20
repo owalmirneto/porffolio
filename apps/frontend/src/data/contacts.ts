@@ -14,11 +14,6 @@ const contacts = [
     link: "https://linkedin.com/in/owalmirneto",
   },
   {
-    IconComponent: SiGmail,
-    alt: "Email icon",
-    link: "mailto:owalmirneto@gmail.com",
-  },
-  {
     IconComponent: SiGithub,
     alt: "Github icon",
     link: "https://github.com/owalmirneto",
@@ -32,6 +27,11 @@ const contacts = [
     IconComponent: BsTelegram,
     alt: "Telegram icon",
     link: "https://t.me/owalmirneto",
+  },
+  {
+    IconComponent: SiGmail,
+    alt: "Email icon",
+    link: "mailto:owalmirneto@gmail.com",
   },
   {
     IconComponent: FaTwitch,
