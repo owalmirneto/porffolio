@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveRecord::Base.transaction do
   walmir = User.create!(
     name: "Walmir Neto",
@@ -68,5 +70,101 @@ ActiveRecord::Base.transaction do
     location: "Recife - PE",
     country: "Brazil",
     email: "hello@walmir.dev"
+  )
+
+  iloveme = walmir.companies.create!(
+    name: "ilove.me · Sistema fácil para Salões de Beleza, Clínicas e Spas",
+    website: "https://ilove.me",
+    brand: Pathname.new(Rails.public_path.join("images/companies/ilove.me.png")).open
+  )
+  iloveme.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2022-07-01",
+    description: <<-TEXT
+      ilove.me is an ecosystem made for the beauty and aesthetics industry and my responsibilities here are to develop and maintain features including stocks, contracts, schedules, notifiers, etc..
+
+      ilove.me stack is a compound Ruby on Rails and PostgreSQL as main database. Ember.js in our frontend, Node.js and GoLang for some microservices. We use RabbitMQ to communicate between microservices. In Infrastructure we use Rancher management with Kubernetes and Okteto in our development environment
+    TEXT
+  )
+
+  repassa = walmir.companies.create!(
+    name: "Repassa · Brechó Online das Melhores Marcas",
+    website: "https://repassa.com.br",
+    brand: Pathname.new(Rails.public_path.join("images/companies/repassa.png")).open
+  )
+  repassa.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2021-10-01",
+    rescission_date: "2022-07-31",
+    description: <<-TEXT
+    Repassa is the largest online thrift store in Brazil, my responsibilities here were to develop and maintain features including product stock, sign up of users, and receiving clothes bags.
+    Repassa stack is a compound API developed with Ruby on Rails and PostgreSQL as the main database (Using GraphQL to serve). On frontend is used by Next.js to consume GraphQL API. We use RabbitMQ to communicate between microservices. In Infrastructure we use Rancher management with Kubernetes
+    TEXT
+  )
+
+  interage = walmir.companies.create!(
+    name: "Interage · agile software house",
+    website: "http://www.interage.in",
+    brand: Pathname.new(Rails.public_path.join("images/companies/interage.png")).open
+  )
+  interage.jobs.create!(
+    title: "TechLead and Fullstack Software Developer",
+    hire_date: "2017-10-01",
+    rescission_date: "2021-09-30",
+    description: <<-TEXT
+    Interage is a software house, which since 2012 has been delivering benefits to its customers through projects of the most varied sectors and sizes, my responsibilities here were to gather requirements for some projects with customers and/or P.O. and define together with the team how we would develop each feature
+    My responsibilities here were to maintain and develop new features for each customer's applications
+    Stack: Ruby on Rails, PostgreSQL, Sidekiq, Redis, Node.js, React.js, Python, PHP, Heroku, Linode, AWS EC2, AWS S3.
+    TEXT
+  )
+
+  comunikapp = walmir.companies.create!(
+    name: "Comunika · Comunicação Escolar",
+    website: "https://comunikapp.com",
+    brand: Pathname.new(Rails.public_path.join("images/companies/comunika.png")).open
+  )
+  comunikapp.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2016-06-01",
+    rescission_date: "2017-12-29",
+    description: <<-TEXT
+    I am responsible for the API that serves the Web APP, Android and IOS apps, the platform used by schools to communicate with those responsible for students and the webapp used by those responsible, as well as the Android and IOS apps.
+    TEXT
+  )
+
+  idealizza = walmir.companies.create!(
+    name: "Idealizza",
+    website: "http://idealizza.com.br",
+    brand: Pathname.new(Rails.public_path.join("images/companies/idealizza.png")).open
+  )
+  idealizza.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2017-07-01",
+    rescission_date: "2017-12-29",
+    description: "At Idealizza, I developed web applications using HTML5, CSS3, jQuery, CakePHP, MySQL, DigitalOcean."
+  )
+
+  tisstech = walmir.companies.create!(
+    name: "TIS TECH Angola",
+    website: "https://www.tistech.co.ao",
+    brand: Pathname.new(Rails.public_path.join("images/companies/tisstech.jpeg")).open
+  )
+  tisstech.jobs.create!(
+    title: "Software Developer",
+    hire_date: "2014-07-01",
+    rescission_date: "2015-11-28",
+    description: "Web applications using Laravel, Git, MySQL e Jquery."
+  )
+
+  pianolab = walmir.companies.create!(
+    name: "PIANOLAB Agência Digital",
+    website: "http://pianolab.com.br",
+    brand: Pathname.new(Rails.public_path.join("images/companies/pianolab.png")).open
+  )
+  pianolab.jobs.create!(
+    title: "Software Developer",
+    hire_date: "2011-08-02",
+    rescission_date: "2014-09-02",
+    description: "Web applications using a framework in PHP following the MVC pattern for the company to use in your projects."
   )
 end

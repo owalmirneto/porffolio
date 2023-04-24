@@ -59,3 +59,9 @@ end
 gem "graphql", "~> 2.0"
 # https://github.com/jetruby/graphql-rails_logger#configuration
 gem "graphql-rails_logger", "~> 1.2"
+# https://github.com/carrierwaveuploader/carrierwave#getting-started
+gem "carrierwave", "~> 2.2"
+# https://github.com/aws/aws-sdk-ruby#installation
+gem "aws-sdk-s3", "~> 1.119", ">= 1.119.1"
+# https://github.com/fog/fog-aws#usage
+gem "fog-aws", "~> 3.18"

@@ -3,6 +3,8 @@
 import PageTitle from "@/components/commons/PageTitle"
 import Loading from "@/components/commons/Loading"
 
+import { Page } from "@/models/Page"
+
 import Contacts from "@/app/Contacts"
 
 import { gql, useQuery } from "@apollo/client"
@@ -24,7 +26,7 @@ export default function ContactPage() {
 
   if (loading) return <Loading />
 
-  const { title, description, location, country, email } = data.pageByEmail
+  const { title, description, location, country, email } = data.pageByEmail as Page
 
   return (
     <section id="contact" className="flex flex-col">
