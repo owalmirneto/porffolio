@@ -1,6 +1,10 @@
 "use client"
 
+import Loading from "@/components/commons/Loading"
 import PageTitle from "@/components/commons/PageTitle"
+import { Course } from "@/models/Course"
+
+import CourseDetail from "./CourseDetail"
 
 import { gql, useQuery } from "@apollo/client"
 
@@ -10,6 +14,7 @@ const courseQuery = gql`
       id
       title
       subtitle
+      location
       startDate
       finishDate
       school {
@@ -23,27 +28,14 @@ const courseQuery = gql`
 export default function Educations() {
   const { loading, data } = useQuery(courseQuery)
 
-  if (loading) return "Loading..."
+  if (loading) return <Loading />
 
   return (
-    <section id="education">
+    <section>
       <PageTitle title="Education" />
 
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      { data.courses.map((course: any) => (
-        <div key={course.id}>
-          <div>
-            <h3>{course.school.name}</h3>
-            <div>{course.title}</div>
-            <div>{course.subtitle}</div>
-            <a href={course.school.website} target="blank">
-              {course.school.website}
-            </a>
-          </div>
-          <div>
-            <span>{course.startDate} - {course.finishDate}</span>
-          </div>
-        </div>
+      { data.courses.map((course: Course) => (
+        <CourseDetail key={course.id} course={course} />
       ))}
     </section>
   )

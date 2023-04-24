@@ -13,6 +13,7 @@ ActiveRecord::Base.transaction do
   leiaut.courses.create!(
     title: "Information systems technician",
     subtitle: "Computer Science - Web Development Track",
+    location: "Recife",
     start_date: "2007-04-01",
     finish_date: "2010-05-01",
     ordination: 1
@@ -24,7 +25,8 @@ ActiveRecord::Base.transaction do
   )
   ep.courses.create!(
     title: "GENERAL ENGLISH COURSE",
-    subtitle: "📍London",
+    subtitle: "English courses in London - Greenford campus",
+    location: "London",
     start_date: "2022-10-03",
     finish_date: "2022-10-28",
     ordination: 2
@@ -36,7 +38,8 @@ ActiveRecord::Base.transaction do
   )
   ncg.courses.create!(
     title: "GENERAL ENGLISH COURSE",
-    subtitle: "📍Liverpool",
+    subtitle: "Liverpool is a maritime city located in the north west of England",
+    location: "Liverpool",
     start_date: "2022-11-07",
     finish_date: "2022-12-02",
     ordination: 3
@@ -48,7 +51,8 @@ ActiveRecord::Base.transaction do
   )
   especializa.courses.create!(
     title: "PHP Developer",
-    subtitle: "📍Recife",
+    subtitle: "In this module, we teach how to model an object-oriented system and bring a lot of Expert stuff",
+    location: "Recife",
     start_date: "2010-06-01",
     finish_date: "2010-09-01",
     ordination: 4

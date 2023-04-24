@@ -6,6 +6,7 @@ class CreateCoursesTable < ActiveRecord::Migration[7.0]
       t.belongs_to :school, null: false, foreign_key: true, type: :uuid
       t.string :title, null: false
       t.string :subtitle, null: true
+      t.string :location, null: true
       t.date :start_date, null: false
       t.date :finish_date, null: true
       t.integer :ordination, null: false, default: 0
