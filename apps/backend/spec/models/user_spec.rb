@@ -4,7 +4,11 @@ describe User do
   subject(:user) { build(:blank_user) }
 
   describe "associations" do
+    it { is_expected.to have_many(:schools) }
+    it { is_expected.to have_many(:courses) }
+    it { is_expected.to have_many(:pages) }
     it { is_expected.to have_many(:companies) }
+    it { is_expected.to have_many(:jobs) }
   end
 
   describe "validations" do
