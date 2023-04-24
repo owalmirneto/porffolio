@@ -4,14 +4,14 @@ module Types
   class JobType < Types::BaseObject
     include ActionView::Helpers::DateHelper
 
+    field :id, String, null: false
+    field :title, String, null: false
+    field :description, String
+    field :hire_date, String
+    field :rescission_date, String
+    field :duration, String
     field :company, Types::CompanyType, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :description, String
-    field :duration, String
-    field :hire_date, String
-    field :id, String, null: false
-    field :rescission_date, String
-    field :title, String, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     def hire_date

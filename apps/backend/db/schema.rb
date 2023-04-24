@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_085129) do
     t.uuid "school_id", null: false
     t.string "title", null: false
     t.string "subtitle"
+    t.string "location"
     t.date "start_date", null: false
     t.date "finish_date"
     t.integer "ordination", default: 0, null: false

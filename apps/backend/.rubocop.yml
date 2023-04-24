@@ -13,8 +13,8 @@ GraphQL/FieldDescription:
 GraphQL/ObjectDescription:
   Enabled: false
 
-# GraphQL/OrderedFields:
-#   Enabled: false
+GraphQL/OrderedFields:
+  Enabled: false
 
 Lint/MissingSuper:
   Enabled: false
