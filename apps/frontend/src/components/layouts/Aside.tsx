@@ -1,6 +1,7 @@
 import AsideLink from "@/components/layouts/AsideLink"
 
 import { AiFillExperiment } from "react-icons/ai"
+import { BiPhone } from "react-icons/bi"
 import { BsFillPenFill, BsTools, BsFillHouseFill } from "react-icons/bs"
 import { FaFileDownload } from "react-icons/fa"
 
@@ -14,6 +15,8 @@ export default function Aside() {
       <AsideLink title="Educations" path="/educations" ComponentIcon={BsFillPenFill} />
 
       <AsideLink title="Skills" path="/skills" ComponentIcon={BsTools} />
+
+      <AsideLink title="Contacts" path="/contacts" ComponentIcon={BiPhone} />
 
       <a href="/documents/resume.pdf" className="flex border text-zinc-200 bg-zinc-600 border-zinc-800 hover:bg-zinc-700 hover:text-zinc-100 rounded-md p-3" download target="blank">
         <span className="flex-1 font-semibold">Download CV</span>
