@@ -5,11 +5,12 @@ import PageTitle from "@/components/commons/PageTitle"
 
 import { currentUser } from "@/data/currentUser"
 
-import { gql, useQuery } from "@apollo/client"
 import JobDetail from "./JobDetail"
 import { Job } from "@/models/Job"
 import { FaLinkedin } from "react-icons/fa"
 import { BiLinkExternal } from "react-icons/bi"
+
+import { gql, useQuery } from "@apollo/client"
 
 const jobsByEmailQuery = gql`
   {

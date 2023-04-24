@@ -1,0 +1,7 @@
+en:
+  enumerations:
+    skill_kinds:
+      currently: "Currently used"
+      infrastructure: "Infrastructure"
+      interests: "Interests"
+      oldest: "Used in the past"

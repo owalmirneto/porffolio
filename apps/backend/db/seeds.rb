@@ -1,5 +1,64 @@
 # frozen_string_literal: true
 
+SKILLS = [
+  {
+    kind: SkillKinds::CURRENTLY,
+    images: [
+      { filename: "rspec", name: "RSpec" },
+      { filename: "rails", name: "Ruby on Rails" },
+      { filename: "postgresql", name: "PostgreSQL" },
+      { filename: "sidekiq", name: "SideKiq" },
+      { filename: "redis", name: "Redis" },
+      { filename: "cypress", name: "Cypress.io" },
+      { filename: "node", name: "Node.js" },
+      { filename: "go", name: "Go Lang" },
+      { filename: "rabbitmq", name: "RabbitMQ" },
+      { filename: "rancher", name: "Rancher" },
+      { filename: "okteto", name: "Okteto" },
+      { filename: "next.js", name: "Next.js" },
+      { filename: "ts", name: "TypeScript" },
+      { filename: "graphql", name: "GraphQL" }
+    ]
+  }, {
+    kind: SkillKinds::INFRASTRUCTURE,
+    images: [
+      { filename: "aws", name: "Amazon Web Services" },
+      { filename: "aws-ec2", name: "AWS EC2" },
+      { filename: "aws-s3", name: "AWS S3" },
+      { filename: "digital-ocean", name: "DigitalOcean" },
+      { filename: "linode", name: "Linode" }
+    ]
+  }, {
+    kind: SkillKinds::INTERESTS,
+    images: [
+      { filename: "kubernetes", name: "Kubernetes" },
+      { filename: "terraform", name: "Terraform" },
+      { filename: "ansible", name: "Ansible" },
+      { filename: "kafka", name: "Kafka" },
+      { filename: "grpc", name: "gRPC" },
+      { filename: "flutter", name: "Flutter" },
+      { filename: "nestjs", name: "Nest.js" },
+      { filename: "elasticsearch", name: "Elastic Search" },
+      { filename: "logstash", name: "Logstash" },
+      { filename: "kibana", name: "Kibana" }
+    ]
+  }, {
+    kind: SkillKinds::OLDEST,
+    images: [
+      { filename: "php", name: "PHP" },
+      { filename: "sass", name: "SASS" },
+      { filename: "mysql", name: "MySQL" },
+      { filename: "laravel", name: "Laravel" },
+      { filename: "cakephp", name: "CakePHP" },
+      { filename: "jquery", name: "jQuery" },
+      { filename: "react", name: "React.js" },
+      { filename: "js", name: "JavaScript" },
+      { filename: "html5", name: "HTML5" },
+      { filename: "css3", name: "CSS3" }
+    ]
+  }
+].freeze
+
 ActiveRecord::Base.transaction do
   walmir = User.create!(
     name: "Walmir Neto",
@@ -171,4 +230,14 @@ ActiveRecord::Base.transaction do
     rescission_date: "2014-09-02",
     description: "Web applications using a framework in PHP following the MVC pattern for the company to use in your projects."
   )
+
+  SKILLS.each do |skill|
+    skill[:images].each do |image|
+      walmir.skills.create!(
+        kind: skill[:kind],
+        name: image[:name],
+        image: Pathname.new(Rails.public_path.join("images/skills/#{image[:filename]}.png")).open
+      )
+    end
+  end
 end

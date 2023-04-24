@@ -65,3 +65,5 @@ gem "carrierwave", "~> 2.2"
 gem "aws-sdk-s3", "~> 1.119", ">= 1.119.1"
 # https://github.com/fog/fog-aws#usage
 gem "fog-aws", "~> 3.18"
+# https://github.com/owalmirneto/enuminator#using-with-rails
+gem "enuminator", "~> 0.0.3"

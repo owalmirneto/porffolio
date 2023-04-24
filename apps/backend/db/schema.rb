@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_085129) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_24_184255) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "skill_kinds", ["currently", "infrastructure", "interests", "oldest"]
 
   create_table "companies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
@@ -71,6 +75,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_085129) do
     t.index ["user_id"], name: "index_schools_on_user_id"
   end
 
+  create_table "skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.enum "kind", default: "currently", enum_type: "skill_kinds"
+    t.string "name", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_skills_on_user_id_and_name", unique: true
+    t.index ["user_id"], name: "index_skills_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "email", null: false
@@ -84,4 +99,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_085129) do
   add_foreign_key "jobs", "companies"
   add_foreign_key "pages", "users"
   add_foreign_key "schools", "users"
+  add_foreign_key "skills", "users"
 end
