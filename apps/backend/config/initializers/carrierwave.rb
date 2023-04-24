@@ -17,7 +17,7 @@ CarrierWave.configure do |config|
     }
 
     config.fog_directory = ENV.fetch("AWS_S3_BUCKET")
-    config.asset_host = ENV.fetch("CARRIER_WAVE_ASSET_HOST", config.asset_host)
+    config.asset_host = Rails.application.config.asset_host
   end
 
   if Rails.env.test?
