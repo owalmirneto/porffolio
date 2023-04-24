@@ -20,7 +20,7 @@ export default function RootLayout({
         <title>@owalmirneto</title>
       </head>
 
-      <body className="flex h-screen items-center justify-center">
+      <body className="flex min-h-screen items-center justify-center py-5">
         <section className="container">
           <TitleBar />
 
