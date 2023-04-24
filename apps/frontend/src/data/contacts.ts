@@ -33,16 +33,16 @@ const contacts = [
     alt: "Email icon",
     link: "mailto:owalmirneto@gmail.com",
   },
-  {
-    IconComponent: FaTwitch,
-    alt: "Twitch icon",
-    link: "https://twitch.tv/owalmirneto",
-  },
-  {
-    IconComponent: FaInstagram,
-    alt: "Instagram icon",
-    link: "https://instagram.com/owalmirneto",
-  },
+  // {
+  //   IconComponent: FaTwitch,
+  //   alt: "Twitch icon",
+  //   link: "https://twitch.tv/owalmirneto",
+  // },
+  // {
+  //   IconComponent: FaInstagram,
+  //   alt: "Instagram icon",
+  //   link: "https://instagram.com/owalmirneto",
+  // },
   {
     IconComponent: FaTwitterSquare,
     alt: "Twitter icon",
