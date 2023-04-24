@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :courses, through: :schools
   has_many :pages, dependent: :restrict_with_exception
   has_many :companies, dependent: :restrict_with_exception
+  has_many :jobs, through: :companies
 
   encrypts :email, deterministic: true, downcase: true
 

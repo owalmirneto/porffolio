@@ -75,11 +75,22 @@ ActiveRecord::Base.transaction do
     website: "https://ilove.me",
     brand: Pathname.new(Rails.root.join("public/images/companies/ilove.me.png")).open
   )
+  iloveme.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2022-07-01",
+    description: "I'm a Fullstack Software Developer at ilove.me"
+  )
 
   repassa = walmir.companies.create!(
     name: "Repassa · Brechó Online das Melhores Marcas",
     website: "https://repassa.com.br",
     brand: Pathname.new(Rails.root.join("public/images/companies/repassa.png")).open
+  )
+  repassa.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2022-10-01",
+    rescission_date: "2022-07-31",
+    description: "I'm a Fullstack Software Developer at Repassa"
   )
 
   interage = walmir.companies.create!(
@@ -87,11 +98,23 @@ ActiveRecord::Base.transaction do
     website: "http://www.interage.in",
     brand: Pathname.new(Rails.root.join("public/images/companies/interage.png")).open
   )
+  interage.jobs.create!(
+    title: "TechLead and Fullstack Software Developer",
+    hire_date: "2017-10-01",
+    rescission_date: "2021-09-31",
+    description: "I'm a TechLead and Fullstack Software Developer at Interage, our main stack consists of ruby on rails, postgres as main database but we also use Sidekiq and Redis a lot for background jobs and other secondary tasks."
+  )
 
   comunikapp = walmir.companies.create!(
     name: "Comunika · Comunicação Escolar",
     website: "https://comunikapp.com",
     brand: Pathname.new(Rails.root.join("public/images/companies/comunika.png")).open
+  )
+  comunikapp.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2016-06-01",
+    rescission_date: "2017-12-29",
+    description: "I am responsible for the API that serves the Web APP, Android and IOS apps, the platform used by schools to communicate with those responsible for students and the webapp used by those responsible, as well as the Android and IOS apps."
   )
 
   idealizza = walmir.companies.create!(
@@ -99,16 +122,34 @@ ActiveRecord::Base.transaction do
     website: "http://idealizza.com.br",
     brand: Pathname.new(Rails.root.join("public/images/companies/idealizza.png")).open
   )
+  idealizza.jobs.create!(
+    title: "Fullstack Software Developer",
+    hire_date: "2017-07-01",
+    rescission_date: "2017-12-29",
+    description: "At Idealizza, I developed web applications using HTML5, CSS3, jQuery, CakePHP, MySQL, DigitalOcean."
+  )
 
   tisstech = walmir.companies.create!(
     name: "TIS TECH Angola",
     website: "https://www.tistech.co.ao",
     brand: Pathname.new(Rails.root.join("public/images/companies/tisstech.jpeg")).open
   )
+  tisstech.jobs.create!(
+    title: "Software Developer",
+    hire_date: "2014-07-01",
+    rescission_date: "2015-11-28",
+    description: "Web applications using Laravel, Git, MySQL e Jquery."
+  )
 
   pianolab = walmir.companies.create!(
     name: "PIANOLAB Agência Digital",
     website: "http://pianolab.com.br",
     brand: Pathname.new(Rails.root.join("public/images/companies/pianolab.png")).open
+  )
+  pianolab.jobs.create!(
+    title: "Software Developer",
+    hire_date: "2011-08-02",
+    rescission_date: "2014-09-02",
+    description: "Web applications using a framework in PHP following the MVC pattern for the company to use in your projects."
   )
 end
