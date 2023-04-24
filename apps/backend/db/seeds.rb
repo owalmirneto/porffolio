@@ -69,4 +69,46 @@ ActiveRecord::Base.transaction do
     country: "Brazil",
     email: "hello@walmir.dev"
   )
+
+  iloveme = walmir.companies.create!(
+    name: "ilove.me · Sistema fácil para Salões de Beleza, Clínicas e Spas",
+    website: "https://ilove.me",
+    brand: Pathname.new(Rails.root.join("public/images/companies/ilove.me.png")).open
+  )
+
+  repassa = walmir.companies.create!(
+    name: "Repassa · Brechó Online das Melhores Marcas",
+    website: "https://repassa.com.br",
+    brand: Pathname.new(Rails.root.join("public/images/companies/repassa.png")).open
+  )
+
+  interage = walmir.companies.create!(
+    name: "Interage · agile software house",
+    website: "http://www.interage.in",
+    brand: Pathname.new(Rails.root.join("public/images/companies/interage.png")).open
+  )
+
+  comunikapp = walmir.companies.create!(
+    name: "Comunika · Comunicação Escolar",
+    website: "https://comunikapp.com",
+    brand: Pathname.new(Rails.root.join("public/images/companies/comunika.png")).open
+  )
+
+  idealizza = walmir.companies.create!(
+    name: "Idealizza",
+    website: "http://idealizza.com.br",
+    brand: Pathname.new(Rails.root.join("public/images/companies/idealizza.png")).open
+  )
+
+  tisstech = walmir.companies.create!(
+    name: "TIS TECH Angola",
+    website: "https://www.tistech.co.ao",
+    brand: Pathname.new(Rails.root.join("public/images/companies/tisstech.jpeg")).open
+  )
+
+  pianolab = walmir.companies.create!(
+    name: "PIANOLAB Agência Digital",
+    website: "http://pianolab.com.br",
+    brand: Pathname.new(Rails.root.join("public/images/companies/pianolab.png")).open
+  )
 end

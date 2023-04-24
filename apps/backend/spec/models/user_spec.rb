@@ -3,6 +3,10 @@
 describe User do
   subject(:user) { build(:blank_user) }
 
+  describe "associations" do
+    it { is_expected.to have_many(:companies) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:email) }
