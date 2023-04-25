@@ -138,7 +138,7 @@ ActiveRecord::Base.transaction do
   iloveme = walmir.companies.create!(
     name: "ilove.me · Sistema fácil para Salões de Beleza, Clínicas e Spas",
     website: "https://ilove.me",
-    brand: Pathname.new(Rails.public_path.join("images/companies/ilove.me.png")).open
+    brand: "/images/companies/ilove.me.png"
   )
   iloveme.jobs.create!(
     title: "Fullstack Software Developer",
@@ -153,7 +153,7 @@ ActiveRecord::Base.transaction do
   repassa = walmir.companies.create!(
     name: "Repassa · Brechó Online das Melhores Marcas",
     website: "https://repassa.com.br",
-    brand: Pathname.new(Rails.public_path.join("images/companies/repassa.png")).open
+    brand: "/images/companies/repassa.png"
   )
   repassa.jobs.create!(
     title: "Fullstack Software Developer",
@@ -168,7 +168,7 @@ ActiveRecord::Base.transaction do
   interage = walmir.companies.create!(
     name: "Interage · agile software house",
     website: "http://www.interage.in",
-    brand: Pathname.new(Rails.public_path.join("images/companies/interage.png")).open
+    brand: "/images/companies/interage.png"
   )
   interage.jobs.create!(
     title: "TechLead and Fullstack Software Developer",
@@ -184,7 +184,7 @@ ActiveRecord::Base.transaction do
   comunikapp = walmir.companies.create!(
     name: "Comunika · Comunicação Escolar",
     website: "https://comunikapp.com",
-    brand: Pathname.new(Rails.public_path.join("images/companies/comunika.png")).open
+    brand: "/images/companies/comunika.png"
   )
   comunikapp.jobs.create!(
     title: "Fullstack Software Developer",
@@ -198,7 +198,7 @@ ActiveRecord::Base.transaction do
   idealizza = walmir.companies.create!(
     name: "Idealizza",
     website: "http://idealizza.com.br",
-    brand: Pathname.new(Rails.public_path.join("images/companies/idealizza.png")).open
+    brand: "/images/companies/idealizza.png"
   )
   idealizza.jobs.create!(
     title: "Fullstack Software Developer",
@@ -210,7 +210,7 @@ ActiveRecord::Base.transaction do
   tisstech = walmir.companies.create!(
     name: "TIS TECH Angola",
     website: "https://www.tistech.co.ao",
-    brand: Pathname.new(Rails.public_path.join("images/companies/tisstech.jpeg")).open
+    brand: "/images/companies/tisstech.jpeg"
   )
   tisstech.jobs.create!(
     title: "Software Developer",
@@ -222,7 +222,7 @@ ActiveRecord::Base.transaction do
   pianolab = walmir.companies.create!(
     name: "PIANOLAB Agência Digital",
     website: "http://pianolab.com.br",
-    brand: Pathname.new(Rails.public_path.join("images/companies/pianolab.png")).open
+    brand: "/images/companies/pianolab.png"
   )
   pianolab.jobs.create!(
     title: "Software Developer",
@@ -236,7 +236,7 @@ ActiveRecord::Base.transaction do
       walmir.skills.create!(
         kind: skill[:kind],
         name: image[:name],
-        image: Pathname.new(Rails.public_path.join("images/skills/#{image[:filename]}.png")).open
+        image: "/images/skills/#{image[:filename]}.png"
       )
     end
   end

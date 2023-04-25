@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["localhost"]
+    domains: ["localhost", "site-walmir-dev.onrender.com"],
   },
 }
 

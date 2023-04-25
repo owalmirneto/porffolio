@@ -8,5 +8,9 @@ module Types
     field :image, String, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    def image
+      "#{Rails.application.config.asset_host}#{object.image}"
+    end
   end
 end
