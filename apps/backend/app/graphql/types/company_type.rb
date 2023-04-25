@@ -8,5 +8,9 @@ module Types
     field :brand, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+
+    def brand
+      "#{Rails.application.config.asset_host}#{object.brand}"
+    end
   end
 end

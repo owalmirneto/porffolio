@@ -8,5 +8,5 @@ class Skill < ApplicationRecord
 
   has_enumeration_for :kind, with: SkillKinds, create_helpers: true
 
-  mount_uploader :image, ImagesUploader
+  # mount_uploader :image, ImagesUploader
 end
