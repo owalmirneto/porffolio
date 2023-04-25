@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
 import Loading from "@/components/commons/Loading"
 import PageTitle from "@/components/commons/PageTitle"
 
@@ -46,7 +44,8 @@ export default function Skills() {
           <div className="flex flex-wrap gap-2">
             {groupedSkills[kind].map((skill: Skill, k: number) => (
               <div key={k}>
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   alt={skill.name}
                   title={skill.name}
                   src={skill.image}
