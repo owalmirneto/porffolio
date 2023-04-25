@@ -1,5 +1,4 @@
 import { Job } from "@/models/Job"
-import Image from "next/image"
 import { BiLinkExternal } from "react-icons/bi"
 
 type Props = {
@@ -12,7 +11,8 @@ export default function JobDetail({ job }: Props): JSX.Element {
   return (
     <div className="flex bg-zinc-200 shadow-lg rounded-lg my-4">
       <div className="flex w-full items-start px-4 py-6">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           alt={ company.name }
           src={ company.brand }
           className="w-12 h-12 rounded-xl object-cover mr-4 shadow-lg"
