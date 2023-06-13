@@ -26,23 +26,25 @@ export default function ContactPage() {
 
   if (loading) return <Loading />
 
-  const { title, description, location, country, email } = data.pageByEmail as Page
+  console.log(data)
 
-  return (
-    <section id="contact" className="flex flex-col">
-      <PageTitle title={title} />
+  // const { title, description, location, country, email } = data.pageByEmail as Page
+  return <h1>Teste</h1>
+  // return (
+  //   <section id="contact" className="flex flex-col">
+  //     <PageTitle title={title} />
 
-      <div className="space-y-3 text-lg">
-        {description.map((item: string, key: number) => <p key={key}>{item}</p>)}
-      </div>
+  //     <div className="space-y-3 text-lg">
+  //       {description.map((item: string, key: number) => <p key={key}>{item}</p>)}
+  //     </div>
 
-      <div className="mb-10 text-end">
-        <p>{location} • {country}</p>
+  //     <div className="mb-10 text-end">
+  //       <p>{location} • {country}</p>
 
-        <a href={`mailto:${email}`} className="text-zinc-950 font-semibold">{email}</a>
-      </div>
+  //       <a href={`mailto:${email}`} className="text-zinc-950 font-semibold">{email}</a>
+  //     </div>
 
-      <Contacts />
-    </section>
-  )
+  //     <Contacts />
+  //   </section>
+  // )
 }

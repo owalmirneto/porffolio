@@ -9,25 +9,24 @@ module Types
     field :description, String
     field :hire_date, String
     field :rescission_date, String
-    field :duration, String
     field :company, Types::CompanyType, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
-    def hire_date
-      object.hire_date.strftime("%b %Y")
-    end
+    # def hire_date
+    #   object.hire_date.strftime("%b %Y")
+    # end
 
-    def rescission_date
-      return "Present" if object.rescission_date.blank?
+    # def rescission_date
+    #   return "Present" if object.rescission_date.blank?
 
-      object.rescission_date.strftime("%b %Y")
-    end
+    #   object.rescission_date.strftime("%b %Y")
+    # end
 
-    def duration
-      finish_date = object.rescission_date.presence || Date.current
+    # def duration
+    #   finish_date = object.rescission_date.presence || Date.current
 
-      distance_of_time_in_words(object.hire_date, finish_date)
-    end
+    #   distance_of_time_in_words(object.hire_date, finish_date)
+    # end
   end
 end

@@ -3,14 +3,14 @@
 module Types
   class SkillType < Types::BaseObject
     field :id, String, null: false
-    field :kind, String, method: :kind_humanize
+    field :kind, String
     field :name, String, null: false
     field :image, String, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
-    def image
-      "#{Rails.application.config.asset_host}#{object.image}"
-    end
+    # def image
+    #   "#{Rails.application.config.asset_host}#{object.image}"
+    # end
   end
 end
